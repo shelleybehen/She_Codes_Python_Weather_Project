@@ -24,8 +24,8 @@ print(not is_sunny)
 #Fundamentals of decision making process
 #name = "Veda"
 
-if name == "Asli":
-    print("Hello Asli")
+#if name == "Asli":
+#    print("Hello Asli")
 
 elif name == "Randall":
     print("Hi Randall")
