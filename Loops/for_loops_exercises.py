@@ -25,11 +25,12 @@ mailing_list = [
     ["Prince Thomas of Whitepaw", "hrh.thomas@royalty.wp"],
     ["Ivy", "noreply@goldendreamers.xyz"],
 ]
-name1 = 
-for i in mailing_list:
-    print(f"{mailing_list[0][0]}: {mailing_list[0][-1]}")
-# print(f"{mailing_list[0][0]}: {mailing_list[0][-1]}")
-# print(f"{mailing_list[1][0]}: {mailing_list[1][-1]}")
-# print(f"{mailing_list[2][0]}: {mailing_list[2][-1]}")
-# print(f"{mailing_list[3][0]}: {mailing_list[3][-1]}")
-# print(f"{mailing_list[-1][0]}: {mailing_list[-1][-1]}")
+for item in mailing_list:
+    print(f"{item[0]}: {item[-1]}")
+
+
+print(f"{mailing_list[0][0]}: {mailing_list[0][-1]}")
+print(f"{mailing_list[1][0]}: {mailing_list[1][-1]}")
+print(f"{mailing_list[2][0]}: {mailing_list[2][-1]}")
+print(f"{mailing_list[3][0]}: {mailing_list[3][-1]}")
+print(f"{mailing_list[-1][0]}: {mailing_list[-1][-1]}")
