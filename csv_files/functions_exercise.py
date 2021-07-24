@@ -29,4 +29,4 @@ def multiply_values(price_per_unit,num_units):
     total = price_per_unit * num_units
     return total
 
-print(multiply_values(4.25, 3))
+print(f"${multiply_values(4.25, 3)}")
