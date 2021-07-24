@@ -27,9 +27,27 @@
 #     for row in csv_reader:
 #         print(f"{row[4]}, Hex: {row[2]}, RGB: {row[1]}")
 
-#Q4
-
-
+# #Q4
+import csv
+red_count = 0
+green_count = 0
+blue_count = 0
+yellow_count = 0
+with open("colours_213.csv", "r") as csv_file:
+    csv_reader = csv.reader(csv_file)
+    for column in csv_reader:
+            if "red" in column[4]:
+                red_count += 1
+            if "green" in column[4]:
+                green_count += 1
+            if "blue" in column[4]:
+                blue_count += 1
+            if "yellow" in column[4]:
+                yellow_count += 1
+    print(f"Red: {red_count}")
+    print(f"Green: {green_count}")
+    print(f"Blue: {blue_count}")
+    print(f"Yellow: {yellow_count}")
 #Q5
 # import csv
 
