@@ -3,7 +3,7 @@ from datetime import datetime
 
 DEGREE_SYBMOL = u"\N{DEGREE SIGN}C"
 
-
+#not sure what argument would go here?  
 def format_temperature(temp):
     """Takes a temperature and returns it in string format with the degrees
         and celcius symbols.
@@ -16,7 +16,13 @@ def format_temperature(temp):
     return (f"{temp}{DEGREE_SYBMOL}")
 
 
+
 def convert_date(iso_string):
+    weekday = datetime.strptime(iso_string, "%d/%m/%y %H:%M:%S").strftime("%A")
+    day = datetime.strptime(iso_string, "%d/%m/%y %H:%M:%S").strftime("%d")
+    month = datetime.strptime(iso_string, "%d/%m/%y %H:%M:%S").strftime("%m")
+    year = datetime.strptime(iso_string, "%d/%m/%y %H:%M:%S").strftime("%y")
+    
     """Converts and ISO formatted date into a human readable format.
 
     Args:
@@ -24,11 +30,8 @@ def convert_date(iso_string):
     Returns:
         A date formatted like: Weekday Date Month Year e.g. Tuesday 06 July 2021
     """
-    weekday = datetime.strptime(iso_string, "%Y-%m-%dT%H:%M:%S%z").strftime("%A")
-    day = datetime.strptime(iso_string, "%Y-%m-%dT%H:%M:%S%z").strftime("%d")
-    month = datetime.strptime(iso_string, "%Y-%m-%dT%H:%M:%S%z").strftime("%B")
-    year = datetime.strptime(iso_string, "%Y-%m-%dT%H:%M:%S%z").strftime("%Y")
-    return(f"{weekday} {day} {month} {year}")
+    return(f"{weekday} {day} {month} {year}.")
+print(convert_date("2020-06-19T07:00:00+08:00"))
 
 
 def convert_f_to_c(temp_in_farenheit):
@@ -39,12 +42,17 @@ def convert_f_to_c(temp_in_farenheit):
     Returns:
         A float representing a temperature in degrees celcius, rounded to 1dp.
     """
-    a = float(temp_in_farenheit)
-    temp_in_c = (a - 32) / 1.8
-    return(float(round(temp_in_c, 1)))
+    temp_in_c = (temp_in_farenheit - 32) / 1.8
+    return temp_in_c
+#print(round(convert_f_to_c(100), 1))
+    
+pass
 
-
+#how to work out how long list of numbers will be?
 def calculate_mean(weather_data):
+    # total = a + b
+    # mean = total / 2
+    # return mean
     """Calculates the mean value from a list of numbers.
 
     Args:
@@ -52,13 +60,13 @@ def calculate_mean(weather_data):
     Returns:
         A float representing the mean value.
     """
-    list_of_floats = []
-    for item in weather_data:
-        list_of_floats.append(float(item))
-        avg = sum(list_of_floats) / len(list_of_floats)
-    return(round(avg,5))
 
-def load_data_from_csv(csv_file): #not sure about this one
+# avg = sum(number_list)/len(number_list)
+# print("The average is ", round(avg,2))
+    pass
+
+
+def load_data_from_csv(csv_file):
     """Reads a csv file and stores the data in a list.
 
     Args:
@@ -66,12 +74,7 @@ def load_data_from_csv(csv_file): #not sure about this one
     Returns:
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
-    with open("C:\\Users\\shell\OneDrive\\Documents\\Desktop\\she_codes_python\\weather_project\\starter\\tests\\data\\example_one.csv", encoding="utf-8") as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=",")
-        headings = next(csv_reader)
-        for row in csv_reader:
-            print(row)
-    return(load_data_from_csv)
+    pass
 
 
 def find_min(weather_data):
@@ -82,9 +85,7 @@ def find_min(weather_data):
     Returns:
         The minium value and it's position in the list.
     """
-    mini =  min(weather_data)
-    minpos = weather_data.index(min(weather_data))
-    return(mini , minpos)
+    pass
 
 
 def find_max(weather_data):
@@ -95,9 +96,7 @@ def find_max(weather_data):
     Returns:
         The maximum value and it's position in the list.
     """
-    maxi =  max(weather_data)
-    maxpos = weather_data.index(max(weather_data))
-    return(maxi , maxpos)
+    pass
 
 
 def generate_summary(weather_data):
