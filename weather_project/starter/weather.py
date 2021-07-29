@@ -58,7 +58,7 @@ def calculate_mean(weather_data):
         avg = sum(list_of_floats) / len(list_of_floats)
     return(round(avg,5))
 
-def load_data_from_csv(csv_file): #not sure about this one
+def load_data_from_csv(csv_file):
     """Reads a csv file and stores the data in a list.
 
     Args:
@@ -66,13 +66,13 @@ def load_data_from_csv(csv_file): #not sure about this one
     Returns:
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
-    with open("C:\\Users\\shell\OneDrive\\Documents\\Desktop\\she_codes_python\\weather_project\\starter\\tests\\data\\example_one.csv", encoding="utf-8") as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=",")
-        headings = next(csv_reader)
-        for row in csv_reader:
-            print(row)
-    return(load_data_from_csv)
-
+    data = []
+    with open(csv_file, mode="r", encoding="utf-8") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for index, line in enumerate(csv_reader):
+            if line != [] and index != 0:
+                data.append([line[0],int(line[1]),int(line[2])])
+        return data        
 
 def find_min(weather_data):
     """Calculates the minimum value in a list of numbers.
